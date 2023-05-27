@@ -26,6 +26,9 @@ To use this script you must create the bot itself in your slack workspace. You c
 ```bash
 npm install
 ```
+Before running the app you must specify your .env file. Add a SLACK_BOT_TOKEN variable to your .env file, the value could be found as on picture below after adding a bot to your workspace:
+
+![prompt](https://sun2-4.userapi.com/impg/KmdDWxMQuM73gMNWHPefEvtuObcqE87rrpyRjA/U29B1m4wMMI.jpg?size=984x360&quality=96&sign=0e9dbd75f95192961cf3c95c888aa249&type=album)
 
 ## Running the app
 
