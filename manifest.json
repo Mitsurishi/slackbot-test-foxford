@@ -1,0 +1,30 @@
+{
+    "display_information": {
+        "name": "Slack birthday notification",
+        "description": "Sends DMs to managers one time per day if there's a bday of some of his employees",
+        "background_color": "#c7285f"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "Slack bithday notification",
+            "always_online": false
+        }
+    },
+    "oauth_config": {
+        "redirect_urls": [
+            "https://localhost:3000"
+        ],
+        "scopes": {
+            "bot": [
+                "im:write",
+                "users:read",
+                "users:read.email"
+            ]
+        }
+    },
+    "settings": {
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}
