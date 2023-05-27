@@ -19,7 +19,9 @@ NestJs, Slack-API
 
 To use this script you must create the bot itself in your slack workspace. You can do it by using manifest.json file and pass it when creating an app from manifest:
 
+<div align="center">
 ![prompt](https://sun9-66.userapi.com/impg/17EVlugQoQllnzM5tfovbkurJPeJpD8GhKGsEg/q_5A6k7dsoI.jpg?size=516x366&quality=96&sign=d5c77c75358f97724f165109bb47bee3&type=album)
+</div>
 
 ## Installation
 
