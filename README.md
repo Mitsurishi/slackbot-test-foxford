@@ -9,7 +9,11 @@
 
 ## Description
 
-A bot which does everyday checking of employees birthdays and if it is a someones birthday it sends direct message to employee's manager with reminder.
+A bot which does everyday checking of employees birthdays (doing a POST request and receives data in json format) and if it is a someones birthday it sends direct message to employee's manager with reminder.
+
+Example of received data:
+
+![prompt](https://sun9-80.userapi.com/impg/Ci6EIkFYpqiFr65I9TB3YGWqRD4vD77BZUMxXw/kQfXYYdEQ0c.jpg?size=399x646&quality=96&sign=c643152142720a927581baed5ee1e1d7&type=album)
 
 ## Stack
 
