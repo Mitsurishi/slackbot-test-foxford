@@ -17,10 +17,11 @@ export class AppService {
   async birthdayNotification(): Promise<void> {
 
     try {
+      const today = format(new Date(), 'dd.MM');
       const users = await this.getManagersAndEmployees();
-      const birthday = this.checkBithdays(users);
+      const birthday = this.checkBithdays(users, today);
       if (birthday) {
-        await this.sendMessageToManagers(users);
+        await this.sendMessageToManagers(users, today);
       } else {
         return console.log('No birthdays today :(')
       }
@@ -44,14 +45,13 @@ export class AppService {
 
   }
 
-  private checkBithdays(data: IManager[]): boolean {
+  private checkBithdays(data: IManager[], todayDate: string): boolean {
 
     try {
-      const today = format(new Date(), 'dd.MM');
       let hasBirthdayToday = false;
       data.forEach(({ sotrudniki }) => {
         Object.values(sotrudniki).some((sotrudnik: IEmployee) => {
-          if (sotrudnik.birthday.slice(0, 5) === today) {
+          if (sotrudnik.birthday.slice(0, 5) === todayDate) {
             hasBirthdayToday = true;
           }
         });
@@ -63,12 +63,10 @@ export class AppService {
 
   }
 
-  private async sendMessageToManagers(data: IManager[]): Promise<void> {
+  private async sendMessageToManagers(data: IManager[], todayDate: string): Promise<void> {
 
     try {
-      const today = format(new Date(), 'dd.MM');
       let managerId: string;
-
       for (const item of data) {
         let birthdayPersons: string[] = []
         const rukovoditel = item.rukovoditel;
@@ -76,7 +74,7 @@ export class AppService {
         managerId = (await this.slackClient.users.lookupByEmail({ email: rukovoditel })).user.id
         for (const key in sotrudniki) {
           const sotrudnik = sotrudniki[key];
-          if (sotrudnik.birthday.slice(0, 5) === today) {
+          if (sotrudnik.birthday.slice(0, 5) === todayDate) {
             birthdayPersons.push(sotrudnik.name)
           }
         }
